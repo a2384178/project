@@ -55,19 +55,25 @@
 <body>
     <div id="container" class="container_style">
         <h3>项目展示</h3>
-        <a href="简单图片切换.html">11111</a>
         <a class="a_right">切换>></a>
-        <ul id="ul1"></ul>
+        <ul id="ul1">
+            <li><a href="js_project/project_zhuye.html" >原生JS自制网站</a></li>
+            <li><a href="多图片展开.html" >多图片展开</a></li>
+            <li><a href="简单图片切换.html" >简单图片切换</a></li>
+            <li><a href="幻灯片.html" >幻灯片</a></li>
+            <li><a href="新闻列表展示.html" >新闻列表展示</a></li>
+        </ul>
     </div>
     <div id="container2" class="container_style" style="display: none">
         <h3>项目展示</h3>
         <a class="a_right">切换>></a>
 
         <ul id="ul2">
-            <li>11</li>
-            <li>22</li>
-            <li>33</li>
-            <li>44</li>
+            <li><a href="禁止用户输入.html" >禁止用户输入</a></li>
+            <li><a href="模拟ipad阅读器.html" >模拟iPad阅读器</a></li>
+            <li><a href="全选反选.html" >全选反选</a></li>
+            <li><a href="时间自动切换.html" >时间自动切换</a></li>
+            <li><a href="验证用户名密码.html" >验证用户名密码</a></li>
         </ul>
     </div>
     <script type="text/javascript">
@@ -89,14 +95,14 @@
             ];
             var str='';
             var str2='';
-            for(var i=0;i<data1.length;i++){
+           /* for(var i=0;i<data1.length;i++){
                 var item=data1[i];
                 str+='<li><a href="'+item.url+'"  title="'+item.title+'">'+item.title+'</a></li>';
             }
             for(var i=0;i<data2.length;i++){
                 var item2=data2[i];
                 str2+='<li><a href="'+item2.url+'" target="_blank" title="'+item2.title+'">'+item2.title+'</a></li>';
-            }
+            }*/
 
             var ocontainer=document.getElementById('container');
             var ocontainer2=document.getElementById('container2');
@@ -106,8 +112,8 @@
             var oa2=ocontainer2.getElementsByTagName('a')[0];
             var oli=oul.getElementsByTagName('li');
             var oli2=oul2.getElementsByTagName('li');
-            oul.innerHTML=str;
-            oul2.innerHTML=str2;
+            /*oul.innerHTML=str;
+            oul2.innerHTML=str2;*/
             oa1.onclick=function () {
                 move(ocontainer,{
                     opacity:0
@@ -130,15 +136,19 @@
                     })
                 });
             };
-            for(var i=0;i<oli.length;i++){
-                oli[i].index=i;
-                oli[i].onmouseover=function () {
-                    for(var i=0;i<oli.length;i++){
-                        oli[i].className='';
+            function swich(obj) {
+                for(var i=0;i<obj.length;i++){
+                    obj[i].index=i;
+                    obj[i].onmouseover=function () {
+                        for(var i=0;i<obj.length;i++){
+                            obj[i].className='';
+                        }
+                        obj[this.index].className='olistyle';
                     }
-                    oli[this.index].className='olistyle';
                 }
             }
+            swich(oli);
+            swich(oli2);
             move2(ocontainer,{
                 top:50
             },function () {
