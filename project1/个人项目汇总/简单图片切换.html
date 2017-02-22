@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-Prictice</title>
+    <style>
+        #container{width:600px;height: 400px;position: relative;margin: 0 auto;border: 5px solid black; background: grey;}
+        #imag{width: 600px;height:400px;}
+        #container a{width: 40px;height:40px;position: absolute;border: 5px solid black;top: 175px;background: #000;
+        text-align: center;line-height: 40px;text-decoration: none;font-size: 30px;color: white;font-weight: bold;}
+        #container a:hover{opacity: 0.8;}
+        #container:hover{cursor: pointer;}
+        #prev{left: 10px;opacity: 0.5; }
+        #next{right: 10px;opacity: 0.5;}
+        #p1{position: absolute;bottom: 0;left:0;width:600px;height: 30px;text-align: center;
+            color: white;background: black;opacity: 0.5;margin: 0;}
+        #span1{position: absolute;top: 0;left:0;width:600px;height: 30px;text-align: center;
+            color: white;background: black;opacity: 0.3;margin: 0;}
+
+    </style>
+
+
+
+</head>
+<body>
+<script>
+    window.onload=function () {
+        var oContainer=document.getElementById('container');
+        var oimag=document.getElementById('imag');
+        var oprev=document.getElementById('prev');
+        var onext=document.getElementById('next');
+        var op1=document.getElementById('p1');
+        var ospan1=document.getElementById('span1');
+        var arr=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg'];
+        var num=0;
+        var timer;
+        function animation() {
+
+            op1.innerHTML='这是第'+parseInt(num+1)+'张图片';
+            ospan1.innerHTML=num+1+'/'+arr.length;
+            oimag.src=arr[num];
+        }
+        onext.onclick=function () {
+            num++;
+            if(num==5){
+                num=0
+            }
+
+            animation();
+        };
+        oprev.onclick=function () {
+            num--;
+            if(num==-1){
+                num=4
+            }
+            animation();
+        };
+        function play() {
+            timer=setInterval(function () {
+                onext.onclick();
+            },3000);
+
+        }
+        function styleChange() {
+            op1.style.opacity=0.9;
+            ospan1.style.opacity=0.9;
+        }
+        function styleBack() {
+            op1.style.opacity=0.5;
+            ospan1.style.opacity=0.5;
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+        play();
+        oContainer.onmouseover=function () {
+            styleChange();
+            stop();
+        };
+        oContainer.onmouseout=function () {
+            styleBack();
+            play();
+        };
+
+    }
+
+</script>
+ <div id="container">
+     <img src="img/1.jpg" id="imag">
+     <a href="javascript:;" id="prev"><</a>
+     <a href="javascript:;" id="next">></a>
+     <p id="p1">这是第1张图片</p>
+     <span id="span1">1/5</span>
+ </div>
+
+</body>
+</html>

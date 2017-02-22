@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>禁止用户输入</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=devicee-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        #login{
+            width: 400px;
+            margin: 50px auto;
+            height:300px;
+        }
+        .div1{
+            position: relative;
+        }
+        .div_rewrite{
+            display: none;
+            color: red;
+            border: 0 solid black;
+            position: absolute;
+            left: 10px;
+            top:40px
+        }
+        .input-sty{
+            margin-bottom: 30px;
+            position: relative;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div>
+        <br>
+        <div id="login" class="panel panel-primary">
+            <div class="pan panel-heading">
+                登录
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>用户名：</label>
+                    <div class="div1">
+                        <input type="text" class="form-control input-sty" id="text1" disabled="disabled">
+                        <div id="login1" class="div_rewrite">请重新输入</div>
+                    </div>
+                    <label>密码：</label>
+                    <div class="div1">
+                        <input type="password" class="form-control input-sty" id="text2" placeholder="请输入6到9位字母数字或下划线">
+                        <div id="login2" class="div_rewrite">请重新输入</div>
+                    </div>
+                </div>
+                <a href="#" class="text-info">忘记密码？</a>
+                <input type="button" value="登录" class="btn bg-primary pull-right" id="button1">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

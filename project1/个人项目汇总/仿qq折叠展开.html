@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{margin-left: 400px;}
+        ul,h2{margin:0;padding: 0;}
+        li{list-style: none;}
+        #list{width: 240px;border: 1px solid black}
+        #list h2{background: url("115pic/1.jpg")no-repeat 5px #d4e6ff;line-height: 30px;height:30px;padding-left: 25px;}
+        #list ul{display: none;}
+        #list ul li{line-height: 24px;border-bottom: 1px solid #cfe4ff;cursor: pointer;}
+        #list .active{background: url("115pic/2.jpg")no-repeat 5px #c6dfff;line-height: 30px;height:30px;padding-left: 25px;}
+        #list ul .hover{background: #ff9b97 !important;}
+
+
+    </style>
+    <script>
+        window.onload=function () {
+            var olist=document.getElementById('list');
+            var oli=document.getElementsByClassName('lis');
+            var oh2=olist.getElementsByTagName('h2');
+            var oul=olist.getElementsByTagName('ul');
+            var ali=null;
+            var arrli=[];
+            var str='';
+            changehead(oh2,oul);
+            for(var i=0;i<oul.length;i++){
+                ali=oul[i].getElementsByTagName('li');
+
+                for(var j=0;j<ali.length;j++){
+                    arrli.push(ali[j]);
+                }
+            }
+            for(var i=0;i<arrli.length;i++){
+                arrli[i].onclick=function () {
+                    for(var i=0;i<arrli.length;i++){
+                        arrli[i].className=''
+                    }
+                    this.className='hover';
+                };
+                arrli[i].onmouseover=function () {
+                    str=this.style.background;
+                    this.style.background='grey';
+                };
+                arrli[i].onmouseout=function () {
+                    for(i=0;i<arrli.length;i++){
+                        this.style.background=str;
+                    }
+                }
+            }
+/*
+            for(var i=0;i<oh2.length;i++){
+                oh2[i].index=i;
+                oh2[i].onclick=function () {
+                    if(this.className==''){
+                    oul[this.index].style.display='block';
+                    this.className='active';
+                    }
+                    else {
+                    oul[this.index].style.display='none';
+                    this.className=''
+                    }
+                }
+            }
+*/
+/*
+            for(var i=0;i<oul.length;i++){
+                ali=oul[i].getElementsByTagName('li');
+
+                for(var j=0;j<ali.length;j++){
+                    arrli.push(ali[j]);
+                }
+            }
+            for(var i=0;i<arrli.length;i++){
+                arrli[i].onclick=function () {
+                    for(var i=0;i<arrli.length;i++){
+                        arrli[i].className=''
+                    }
+                    this.className='hover';
+                    //this.style.background='red';
+                };
+                arrli[i].onmouseover=function () {
+                        str=this.style.background;
+                        this.style.background='grey';
+                };
+                arrli[i].onmouseout=function () {
+                    for(i=0;i<arrli.length;i++){
+                        this.style.background=str;
+                    }
+                }
+            }
+*/
+        };
+        function changehead(obj,sibling) {
+            for(var i=0;i<obj.length;i++){
+                obj[i].index=i;
+                obj[i].onclick=function () {
+                    if(this.className==''){
+                        sibling[this.index].style.display='block';
+                        this.className='active';
+                    }
+                    else {
+                        sibling[this.index].style.display='none';
+                        this.className=''
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div>
+<ul id="list">
+    <li class="lis">
+        <h2 >My friends</h2>
+        <ul >
+            <li>lily</li><li>mike</li><li>davie</li><li>curry</li><li>green</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>My friends2</h2>
+        <ul>
+            <li>ben</li><li>durant</li><li>james</li><li>iverson</li><li>klay</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>My friends3</h2>
+        <ul>
+            <li>harden</li><li>anderson</li><li>jodan</li><li>poul</li><li>redick</li>
+        </ul>
+    </li>
+</ul>
+</div>
+</body>
+</html>

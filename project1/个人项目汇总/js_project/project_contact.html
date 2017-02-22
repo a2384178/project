@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联系我们</title>
+    <link rel="stylesheet" href="css/css_reset.css">
+    <link rel="stylesheet" href="css/project_css2.css">
+</head>
+<body>
+    <header>
+        <div id="banner"></div>
+        <nav class="clearfix">
+            <ul class="clearfix" id="contact_navul">
+                <li class="active"><a href="project_zhuye.html">主页</a></li>
+                <li><a href="project_chuan.html">川菜</a></li>
+                <li><a href="project_lu.html">鲁菜</a></li>
+                <li><a href="project_yue.html">粤菜</a></li>
+                <li><a href="project_xiang.html">湘菜</a></li>
+            </ul>
+        </nav>
+    </header>
+    <article id="contact">
+        <h2>联系我们</h2>
+        <form method="post">
+            <div id="div1">
+                <label for="name" class="setpos" >姓名：</label>
+                <input type="text" id="name" placeholder="请输入名字" required>
+            </div>
+            <div id="div2">
+                <label for="email" class="setpos" >邮箱：</label>
+                <input type="email" id="email" placeholder="请输入邮箱" required>
+            </div>
+            <div>
+                <span class="setpos">性别：</span>
+                <label for="male">男</label>
+                <input type="radio" id="male" name="sex" required>
+                <label for="female">女</label>
+                <input type="radio" id="female" name="sex" required>
+            </div>
+            <div>
+                <span class="setpos" style="vertical-align: top">留言：</span>
+                <textarea placeholder="请输入内容…" required > </textarea>
+            </div>
+                <input type="submit" value="提交" id="submit" />
+        </form>
+    </article>
+    <script src="js/jsforcontact.js"></script>
+</body>
+</html>

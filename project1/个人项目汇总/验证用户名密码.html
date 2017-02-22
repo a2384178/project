@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=devicee-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        #login{
+            width: 400px;
+            margin: 50px auto;
+            height:300px;
+        }
+        .div1{
+            position: relative;
+        }
+        .div_rewrite{
+            display: none;
+            color: red;
+            border: 0 solid black;
+            position: absolute;
+            left: 10px;
+            top:40px
+
+        }
+        .input-sty{
+            margin-bottom: 30px;
+            position: relative;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+       window.onload=function () {
+           var oinput=document.getElementsByTagName('input');
+           var obtn=document.getElementById('button1');
+           var login1=document.getElementById('login1');
+           var login2=document.getElementById('login2');
+           var name,name2;
+           var reg=/^[a-zA-Z0-9_]{6,9}$/;
+           obtn.onclick=function () {
+               name=oinput[0].value;
+               name2=oinput[1].value;
+               if(!reg.test(name)){
+                  login1.style.display='block';
+               }
+               if(!reg.test(name2)){
+                   login2.style.display='block';
+               }
+           };
+            oinput[0].onfocus=function () {
+                change_inputstate(this,login1)
+            };
+           oinput[1].onfocus=function () {
+               change_inputstate(this,login2)
+           };
+           function change_inputstate(obj,logi) {
+               obj.value='';
+               logi.style.display='none';
+           }
+       }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div>
+        <br>
+        <div id="login" class="panel panel-primary">
+            <div class="pan panel-heading">
+               登录
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>用户名：</label>
+                    <div class="div1">
+                        <input type="text" class="form-control input-sty" id="text1" placeholder="请输入6到9位字母数字或下划线" >
+                        <div id="login1" class="div_rewrite">请重新输入</div>
+                    </div>
+                    <label>密码：</label>
+                    <div class="div1">
+                        <input type="password" class="form-control input-sty" id="text2" placeholder="请输入6到9位字母数字或下划线">
+                        <div id="login2" class="div_rewrite">请重新输入</div>
+                    </div>
+                </div>
+                <a href="#" class="text-info">忘记密码？</a>
+                <input type="button" value="登录" class="btn bg-primary pull-right" id="button1">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

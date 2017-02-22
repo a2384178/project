@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=devicee-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>JS-Prictice</title>
+    <style>
+        body{
+            background: radial-gradient(#b7bec3,white);
+        }
+        #container{
+            border: 1px solid black;
+            width: 300px;
+            height: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #container p{
+            margin-left: 50px;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container" class="panel panel-primary">
+    <div>
+        <button id="checkall" class="btn bg-primary">全选</button>
+        <button id="deleatall" class="btn bg-primary">全删除</button>
+        <button id="anticheck" class="btn bg-primary">反选</button>
+    </div>
+    <div id="content">
+        <p><label class="labelstyle">lily<input type="checkbox" /></label></p>
+        <p><label>lucy<input type="checkbox"/></label></p>
+        <p><label>darcy<input type="checkbox"/></label></p>
+        <p><label>carl<input type="checkbox"/></label></p>
+        <p><label>mike<input type="checkbox"/></label></p>
+        <p><label>silly<input type="checkbox"/></label></p>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var oContent = document.getElementById('content');
+    var checkBoxList = oContent.getElementsByTagName('input');
+    var checkAll=document.getElementById('checkall');
+    var deleatAll=document.getElementById('deleatall');
+
+    checkAll.onclick = function() {
+        for (var i = 0; i < checkBoxList.length; i++) {
+            checkBoxList[i].checked = true;
+        }
+    };
+    deleatAll.onclick=function(){
+        for(var i=0;i<checkBoxList.length;i++){
+            checkBoxList[i].checked=false;
+        }
+    };
+    anticheck.onclick=function () {
+        for(var i=0;i<checkBoxList.length;i++){
+
+            if (checkBoxList[i].checked){
+            checkBoxList[i].checked=false;
+            } else {
+            checkBoxList[i].checked=true;
+            }
+        }
+    }
+
+</script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

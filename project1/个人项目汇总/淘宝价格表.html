@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #list li{
+            display: inline-block;
+            padding-right: 60px;
+        }
+        .btnclas{
+            margin-left: 70px
+        }
+        .pclas{
+            margin-left:500px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oul=document.getElementById('list');
+            var ali=oul.getElementsByTagName('li');
+            var op=document.getElementsByTagName('p')[0];
+
+            for(var i=0;i<ali.length;i++){
+                fun1(ali[i]);
+            }
+            function sum() {
+                var ostrong=oul.getElementsByTagName('strong');
+                var ospan=oul.getElementsByTagName('span');
+                var totalprice=0;
+                var totalnum=0;
+                for(var i=0;i<ali.length;i++){
+                    totalnum+=parseInt(ostrong[i].innerHTML);
+                    totalprice+=parseFloat(ospan[i].innerHTML)
+                }
+                op.innerHTML='数量为：'+totalnum+'件，'+'共花费：'+totalprice+'元';
+            }
+
+           function fun1(oli) {
+                var btn=oli.getElementsByTagName('input');
+                var ostrong=oli.getElementsByTagName('strong')[0];
+                var oem=oli.getElementsByTagName('em')[0];
+                var ospan=oli.getElementsByTagName('span')[0];
+
+                var n1=Number(ostrong.innerHTML);
+                var n2=parseFloat(oem.innerHTML);
+                btn[1].onclick=function () {
+                    n1++;
+                    ostrong.innerHTML=n1;
+                    ospan.innerHTML=n1*n2+'元';
+                    sum();
+
+                };
+                btn[0].onclick=function () {
+                    n1--;
+                    if(n1<0){
+                        n1=0
+                    }
+                    ostrong.innerHTML=n1;
+                    ospan.innerHTML=n1*n2;
+                    sum();
+                };
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <div><img src="img/tbpic1.jpg"></div>
+        <input type="button" value="-" class="btnclas"/>
+        <strong>0</strong>
+        <input type="button" value="+"><br>
+        单价：<em>125元</em>
+        小计：<span>0元</span>
+    </li>
+    <li>
+        <div><img src="img/tbpic2.jpg"></div>
+        <input type="button" value="-" class="btnclas"/>
+        <strong>0</strong>
+        <input type="button" value="+"><br>
+        单价：<em>152元</em>
+        小计：<span>0</span>
+    </li>
+    <li>
+        <div><img src="img/tbpic3.jpg"></div>
+        <input type="button" value="-" class="btnclas"/>
+        <strong>0</strong>
+        <input type="button" value="+"><br>
+        单价：<em>125元</em>
+        小计：<span>0</span>
+    </li>
+    <li>
+        <div><img src="img/tbpic4.jpg"></div>
+        <input type="button" value="-" class="btnclas"/>
+        <strong>0</strong>
+        <input type="button" value="+"><br>
+        单价：<em>156元</em>
+        小计：<span>0</span>
+    </li>
+</ul>
+<p class="pclas">数量为：0件，共花费：0元<br/></p>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload=function () {
+            var otime=document.getElementById('time');
+            var aimg=document.getElementsByTagName('img');
+            fntime();
+            setInterval(fntime,1000);
+            function fntime() {
+                var myTime=new Date();
+                var ihours=myTime.getHours();
+                var imin=myTime.getMinutes();
+                var isec=myTime.getSeconds();
+                var str='';
+                var str2='';
+                str=totwo(ihours)+totwo(imin)+totwo(isec);
+                str2=totwo(ihours)+':'+totwo(imin)+':'+totwo(isec);
+                otime.innerHTML=str2;
+                for(var i=0;i<str.length;i++){
+                    aimg[i].src='jsnumpic/'+str.charAt(i)+'.png';
+                }
+            }
+            function totwo(n) {
+                return n<10?'0'+n:''+n;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<p id="time"></p>
+<img src="jsnumpic/1.png">
+<img src="jsnumpic/2.png">
+<img src="jsnumpic/3.png">
+<img src="jsnumpic/4.png">
+<img src="jsnumpic/5.png">
+<img src="jsnumpic/5.png">
+
+
+
+</body>
+</html>

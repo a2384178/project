@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            height: 560px;
+            background:linear-gradient(#acc2c4, #f9ebf9);
+        }
+        #ul1{width: 330px;margin: 100px auto 0;position: relative;}
+        li{width: 100px;height: 100px;
+        float: left;list-style: none;margin: 10px 0 0 10px;cursor: pointer}
+    </style>
+    <script src="move1.js"></script>
+    <script>
+        window.onload=function () {
+            picdisplay()
+        };
+        function picdisplay() {
+            var oul=document.getElementById('ul1');
+            var oli=oul.getElementsByTagName('li');
+            var img=oul.getElementsByTagName('img');
+            var arr=[];
+            var num1=1;
+
+            for(var i=0;i<img.length;i++){
+                img[i].style.left=img[i].offsetLeft+'px';
+                img[i].style.top=img[i].offsetTop+'px';
+                arr.push({left:img[i].offsetLeft,top:img[i].offsetTop})
+
+            }
+            for(var i=0;i<img.length;i++){
+                img[i].index=i;
+                img[i].style.position='absolute';
+                img[i].style.margin='0px';
+                img[i].onmouseover=function () {
+                    //this.style.background='yellow';
+                    this.style.zIndex=num1++;
+                    move(this,{
+                        width:150,
+                        height:150,
+                        left:arr[this.index].left-25,
+                        top:arr[this.index].top-25
+                    });
+                };
+                img[i].onmouseout=function () {
+                    move(this,{
+                        width:100,
+                        height:100,
+                        left:arr[this.index].left,
+                        top:arr[this.index].top
+                    });
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li><img src="img/tbpic1.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic2.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic3.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic4.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic1.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic2.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic3.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic4.jpg" width="100px" height="100px"></li>
+    <li><img src="img/tbpic1.jpg" width="100px" height="100px"></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{width: 300px;border: 3px solid #838383;margin: 50px auto;
+            background: #c7bfbb;padding: 5px;
+        line-height: 1.5em;}
+        div>a{position: relative;left:220px;}
+        #span1 span{background-color: yellow;}
+    </style>
+    <script>
+        window.onload=function () {
+
+            var ospan=document.getElementsByTagName('span')[0];
+            var oa=document.getElementsByTagName('a')[0];
+            var oinput=document.getElementsByTagName('input');
+            var ospan2=ospan.getElementsByTagName('span');
+
+            var str='';
+            str=ospan.innerHTML;
+            var turn=true;
+            var str1='';
+            var text='';
+            //查找
+            oinput[1].onclick=function () {
+                check();
+            };
+            oinput[3].onclick=function () {
+
+                str1=ospan.innerHTML;
+                text=oinput[0].value;
+                var newtext=oinput[2].value;
+                str1=str1.split(text);
+                if(!text)return;
+                str1=str1.join('<span>'+newtext+'</span>');
+                ospan.innerHTML=str1;
+            };
+            function check () {
+                text=oinput[0].value;
+                str1=ospan.innerHTML;
+                str1=str1.split(text);
+                if(!text)return;
+                str1=str1.join('<span>'+text+'</span>');
+                ospan.innerHTML=str1;
+            }
+            oa.onclick=function () {
+                if(turn){
+                var str1=str.substring(0,10);
+                ospan.innerHTML=str1;
+                oa.innerHTML='>>打开';
+                }
+                else{
+                ospan.innerHTML=str;
+                oa.innerHTML='>>收起';
+                }
+                turn=!turn;
+            };
+
+        }
+
+    </script>
+</head>
+<body>
+<div>
+    <input type="text"/>
+    <input type="button" value="查找">
+    <input type="text">
+    <input type="button" value="替换">
+
+    <p>
+        <span id="span1">这位有礼貌又很萌的大爷，经历也很丰富，他自曝当了20多年的兵，在外企做过翻译。说说国家最可喜的变化吧，
+    大爷紧跟热点：习主席上台后又打老虎又拍苍蝇，老百姓生活越来越好，在北京待了40年，变化非常之大，为它的变化点赞…… </span>
+    </p>
+    <a href="javascript:;">>>收起</a>
+</div>
+</body>
+</html>

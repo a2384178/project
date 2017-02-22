@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #div1{width: 600px;height: 400px;border: 0px solid black;margin: 50px auto;
+            position: relative;overflow: hidden;}
+        ul{position: absolute;height: 400px;}
+        ul li{float: left;list-style: none;}
+        #div2{position: absolute;right: 20px;bottom:1px;width: 400px;height: 30px;}
+        #div2 span{border: 1px solid black;margin: 2px 4px;width:10px;height:10px;border-radius: 50%;float: left;}
+        .active{background: black;}
+        #div1 #next{position:absolute;right: 20px;top:200px;font-weight: bold;color: black;font-size: 40px;}
+        #div1 #pre{position:absolute;left: 20px;top:200px;font-weight: bold;color: black;font-size: 40px;}
+
+    </style>
+    <script>
+        window.onload=function () {
+            a();
+        };
+
+        function a() {
+            var odiv=document.getElementById('div1');
+            var oul=odiv.getElementsByTagName('ul')[0];
+            var oli=odiv.getElementsByTagName('li');
+            var ospan=odiv.getElementsByTagName('span');
+            var onext=document.getElementById('next');
+            var opre=document.getElementById('pre');
+            var num=0;
+            var timer;
+
+            oul.style.width=oli.length*600+'px';
+            for(var i=0;i<ospan.length;i++) {
+                ospan[i].index = i;
+                ospan[i].onclick = b;
+                function b () {
+                    for(var i=0;i<ospan.length;i++){
+                        ospan[i].className='';
+                    }
+                    ospan[this.index].className='active';
+                    move(oul,{
+                        left:-this.index*600
+                    });
+                    num=this.index;
+                }
+            }
+            onext.onclick=function () {
+                if(oul.offsetLeft%600) return false;
+                if(oul.offsetLeft<=-2400){
+                    move(oul,{
+                        left:0
+                    });
+                }else {
+                    move(oul,{
+                        left:oul.offsetLeft-600
+                    });
+                }
+                num++;
+                if(num==5){
+                    num=0;
+                    shouwbutton();
+                }else {
+                    shouwbutton();
+                }
+            };
+            opre.onclick=function () {
+                if(oul.offsetLeft%600) return false;
+                if(oul.offsetLeft>=0){
+                    move(oul,{
+                        left:-2400
+                    });
+                }else {
+                    move(oul,{
+                        left:oul.offsetLeft+600
+                    });
+                }
+                num--;
+                if(num<0){
+                    num=4;
+                    shouwbutton();
+                }else {
+                    shouwbutton();
+                }
+            };
+            function shouwbutton() {
+                for(var i=0;i<ospan.length;i++){
+                    ospan[i].className='';
+                }
+                ospan[num].className='active';
+            }
+            function play() {
+                timer=setInterval(function () {
+                    onext.onclick();
+                },3000)
+            }
+            play();
+            function stop() {
+                clearInterval(timer);
+            }
+            odiv.onmouseout=play;
+            odiv.onmouseover=stop;
+        }
+        function getstyle(obj,attr) {
+            return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+        }
+        function move(obj,json) {
+            var icur=0;
+            var ispeed=0;
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                var btn=false;
+                for(var attr in json){
+                    var itarget=json[attr];
+                    icur=parseInt(getstyle(obj,attr));
+                    ispeed=(itarget-icur)/5;
+                    ispeed=ispeed>0?Math.ceil(ispeed):Math.floor(ispeed);
+                    if(!btn){
+                        obj.style[attr]=icur+ispeed+'px';
+                    }
+                }
+                if(btn){
+                    clearInterval(obj.timer);
+                }
+            },50)
+        }
+        //获取属性函数
+        function getstyle(obj,attr) {
+            return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <ul style="left: 0">
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+        <li><img src="img/5.jpg"></li>
+
+
+    </ul>
+    <div id="div2">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="pre"> <</div>
+    <div id="next"> ></div>
+
+
+</div>
+</body>
+</html>

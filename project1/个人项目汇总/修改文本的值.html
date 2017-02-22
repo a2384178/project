@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding:0;}
+        div{width: 400px;margin: 0 auto;background: white;}
+        li{list-style: none;}
+        h2{font-size:15px;line-height:30px;background: lightgreen;padding-left: 10px;margin-top: 100px;border:1px solid #dfd0ff;}
+        ul li{font-size: 15px;border-bottom:1px solid #dfd0ff;line-height: 40px;}
+        li p{display: inline-block;font-size: 15px;text-indent: 10px;}
+        ul li>img{width:15px;height:15px;cursor: pointer;}
+        span{cursor: pointer;padding:0 5px;font-weight: bold;color: green;}
+        input{margin-left: 10px;}
+        .hide{display: none;}
+    </style>
+    <script>
+        window.onload=function () {
+            var oul=document.getElementsByTagName('ul')[0];
+            var ali=oul.getElementsByTagName('li');
+            var ap=oul.getElementsByTagName('p');
+            var ainput=oul.getElementsByTagName('input');
+            var asapn=oul.getElementsByTagName('span');
+            var aimg=oul.getElementsByTagName('img');
+
+            for(var i=0;i<asapn.length;i++){
+               asapn[i].className='hide';
+            }
+            for(var i=0;i<ainput.length;i++){
+                ainput[i].className='hide';
+            }
+            fun1(ali[0]);
+            fun1(ali[1]);
+            function fun1(ali) {
+                var oinput=ali.getElementsByTagName('input')[0],
+                    ospan1=ali.getElementsByTagName('span')[0],
+                    ospan2=ali.getElementsByTagName('span')[1],
+                    op=ali.getElementsByTagName('p')[0],
+                    oimg=ali.getElementsByTagName('img')[0];
+
+                oimg.onclick=function () {
+                    op.className=oimg.className='hide';
+                    ospan1.className=ospan2.className=oinput.className='';
+                };
+                ospan1.onclick=function () {
+                    op.className=oimg.className='';
+                    op.innerHTML=oinput.value;
+                    ospan1.className=ospan2.className=oinput.className='hide';
+
+                };
+                ospan2.onclick=function () {
+                    op.className=oimg.className='';
+                    ospan1.className=ospan2.className=oinput.className='hide';
+
+                }
+            }
+
+            /*aimg[0].onclick=function () {
+                ainput[0].className='';
+                asapn[0].className='';
+                asapn[1].className='';
+                ap[0].className='hide';
+
+            }*/
+
+        }
+    </script>
+</head>
+
+<body>
+<div>
+<h2>分类名称</h2>
+<ul id="list">
+    <li>
+        <p >请问是否需要修改</p>
+        <img src="pic/pencil.jpg" >
+        <input type="text"><span>save</span><span>cancel</span>
+    </li>
+    <li>
+        <p>请问是否需要修改</p>
+        <img src="pic/pencil.jpg">
+        <input type="text"><span>save</span><span>cancel</span>
+    </li>
+</ul>
+</div>
+</body>
+</html>
