@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        .clear_fix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
         body{
             background: url("img/bcground.jpg") no-repeat;
             background-size: 1350px 980px;
         }
         .container_style{
-            width: 300px;
+            width:400px;
             border: 1px solid gainsboro;
             top:50px;
-            left: 480px;
+            left: 500px;
             background: linear-gradient(#d4d4d4,white);
             border-radius: 5px;
             position: absolute;
@@ -28,7 +33,7 @@
         }
         .a_right{
             display: inline-block;
-           margin-left:230px;
+           margin-left:330px;
             cursor: pointer;
         }
         ul{
@@ -48,16 +53,56 @@
         .olistyle{
             background:linear-gradient(to top, #d6d6d6,whitesmoke)
         }
+        #container_p_left{
+            text-indent: 2em;
+            float: left;
+            color: white;
+            width: 300px;
+            margin-left: 30px;
+        }
+        #container_p_right{
+            color: white;
+            width:300px;
+            float: right;
+            margin-right: 30px;
+        }
+        #container_p_left h2,#container_p_right h2{
+            text-align: center;
+            opacity: 0;
+        }
+        .container_p_style1_left{
+            line-height:3em;
+            padding: 10px;
+        }
+        .container_p_style{
+            line-height:1.5em;
+            padding: 10px;
+
+        }
+        #footer{
+            position: absolute;
+            bottom: -50px;
+            background: black;
+            height: 40px;
+            width: 100%;
+            padding-left: 300px;
+        }
+        #footer p{
+            float: left;
+            font-size: 10px;
+            color: white;
+            margin-left: 50px;
+        }
     </style>
     <script src="move2_speede.js"></script>
     <script src="move1.js"></script>
 </head>
-<body>
+<body class="clear_fix">
     <div id="container" class="container_style">
         <h3>项目展示</h3>
         <a class="a_right">切换>></a>
         <ul id="ul1">
-            <li><a href="js_project/project_zhuye.html" >原生JS自制网站</a></li>
+            <li ><a href="js_project/project_zhuye.html" >原生JS自制网站</a></li>
             <li><a href="多图片展开.html" >多图片展开</a></li>
             <li><a href="简单图片切换.html" >简单图片切换</a></li>
             <li><a href="幻灯片.html" >幻灯片</a></li>
@@ -79,6 +124,31 @@
             <li><a href="验证用户名密码.html" >验证用户名密码</a></li>
         </ul>
     </div>
+    <div id="container_p_left">
+        <h2 id="personalinfo">个人信息</h2>
+        <p id="p1" class="container_p_style1_left">
+        </p>
+    </div>
+    <div id="container_p_right">
+        <h2 id="skillinfo">技能信息</h2>
+        <p id="p2" class="container_p_style">
+
+        </p>
+        <p id="p3" class="container_p_style">
+
+        </p>
+        <p id="p4" class="container_p_style">
+
+        </p>
+        <p id="p5" class="container_p_style">
+
+        </p>
+    </div>
+    <div id="footer">
+        <p>TEL：18628246713</p>
+        <p>mail:a2384178@163.com</p>
+        <p>GITHub:https://github.com/a2384178/project</p>
+    </div>
     <script type="text/javascript">
             var data1=[
                 {url:'简单图片切换.html',title:'简单图片切换'},
@@ -96,8 +166,6 @@
                 {url:'淘宝价格表.html',title:'淘宝价格表'},
                 {url:'js_project/project_zhuye.html',title:'原生js自制网站'}
             ];
-            var str='';
-            var str2='';
            /* for(var i=0;i<data1.length;i++){
                 var item=data1[i];
                 str+='<li><a href="'+item.url+'"  title="'+item.title+'">'+item.title+'</a></li>';
@@ -115,8 +183,70 @@
             var oa2=ocontainer2.getElementsByTagName('a')[0];
             var oli=oul.getElementsByTagName('li');
             var oli2=oul2.getElementsByTagName('li');
-            /*oul.innerHTML=str;
-            oul2.innerHTML=str2;*/
+            var op1=document.getElementById('p1');
+            var omyinfo=document.getElementById('personalinfo');
+            var omyskill=document.getElementById('skillinfo');
+            var odivright=document.getElementById('container_p_right');
+            var opright=odivright.getElementsByTagName('p');
+            window.onload=function () {
+                var str1 = '我叫帖海阳，今年25岁，希望能够成为一名前端工程师。我毕业于东北大学自动化专业，曾在某外企担任项目工程师。有人说梦想还是要有的万一实现了呢！哪怕只有百分之一的希望，我也会尽百分百的努力。因此，我毅然选择辞职，向着自己目标迈进。';
+                var n = 0;
+                var arr1=str1.split('');
+                var arr2=['1.能够熟练使用PS准确切图，精确到1像素，是我的理念。',
+                    ' 2.熟悉HTML,CSS,能按照W3C标准用CSS+div进行布局书写。',
+                    ' 3.对原生JS较为熟悉，了解浏览器兼容，左边的小作品全是用原生JS书写而成。',
+                    '4.了解jQuery，和bootstrap，目前正在学习ES6标准和react。'
+                ];
+                var ofooter=document.getElementById('footer');
+                function initfoot() {
+                    move(ofooter,{
+                        bottom:0
+                    })
+                }
+                setTimeout(function () {
+                    init()
+                },3000);
+                setTimeout(function () {
+                    init_right();
+                },10500);
+                setTimeout(function () {
+                    initfoot()
+                },18000)
+                function init() {
+                    move(omyinfo,{
+                        opacity:100
+                    },function () {
+                        start(arr1, op1,function () {
+                            move(omyskill,{
+                                opacity:100
+                            })
+                        })
+                    });
+                }
+                function init_right() {
+                    start(arr2[0],opright[0],function () {
+                        start(arr2[1],opright[1],function () {
+                            start(arr2[2],opright[2],function () {
+                                start(arr2[3],opright[3])
+                            })
+                        })
+                    })
+                }
+                //文字搬运函数，第一个参数存放添加文字拆成的数组；
+                //第二个为参数为需要添加到的DOM节点；
+                function start(arr, obj, fn) {
+                    obj.timer = setInterval(function () {
+                        obj.innerHTML += arr[n];
+                        n = n + 1;
+                        if (n === arr.length) {
+                            fn && fn();
+                            clearInterval(obj.timer);
+                            n = 0;
+                        }
+                    }, 50);
+                }
+            };
+
             oa1.onclick=function () {
                 move(ocontainer,{
                     opacity:0
