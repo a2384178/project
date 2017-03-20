@@ -1,0 +1,293 @@
+@charset "gb2312";
+/* CSS Document */
+
+/*****default*****/
+/*****default*****/
+
+/*****top*****/
+.lxxl_top {
+height: 115px;
+width: 100%;
+margin: 0 auto;
+background: #ffffff;
+}
+.lxxl_top_content {
+width: 1200px;
+height: 70px;
+margin: auto;
+padding-top: 35px;
+}
+.lxxl_top_content_logo {
+width: 450px;
+height: 70px;
+float: left;
+}
+.lxxl_top_content_tel {
+width: 306px;
+height: 31px;
+background: url(../images/tel.jpg) no-repeat;
+float: right;
+margin: 25px 10px 0 0;
+}
+
+/*****top*****/
+
+/*****nav*****/
+.jybz_nav {
+height: 45px;
+line-height: 45px;
+font-size: 16px;
+color: #000;
+background:#ee7800;
+width: 1200px;
+margin: 0 auto;
+}
+.jybz_nav ul {
+width: 1200px;
+margin: 0 auto;
+}
+.jybz_nav ul li {
+float: left;
+}
+.jybz_nav ul li a {
+float: left;
+}
+.jybz_nav ul li a:link, .jybz_nav ul li a:visited {
+width:109px;
+text-align: center;
+color: white;
+}
+.jybz_nav ul li a:hover{
+background:#4C4B4B;
+}
+/*****nav*****/
+/*****banner*****/
+.msfc_banner_01{
+background:url(../images/banner_01.jpg) top center no-repeat;
+height:148px;
+}
+.msfc_banner_02{
+background:url(../images/banner_02.jpg) top center no-repeat;
+height:148px;
+}
+.msfc_banner_03{
+background:url(../images/banner_03.jpg) top center no-repeat;
+height:149px;
+}
+/*****banner*****/
+
+/*****名师在新东方*****/
+.msfc_mszxdf{
+width:1200px;
+margin:0 auto;
+height:490px;
+background:#ffffff;
+position:relative;
+}
+.msfc_mszxdf p.p_mszxdf_position{
+position:absolute;
+left:440px;
+top:10px;
+}
+.msfc_mszxdf p.p_mscgtwz_position{
+position:absolute;
+top:120px;
+width:1150px;
+left:35px;
+line-height:30px;
+display:block;
+font-size:14px;
+}
+
+.msfc_mszxdf p.p_xdfxy_position{
+position:absolute;
+top:215px;
+left:250px;
+display:block;
+}
+/*****名师在新东方*****/
+
+/*****川菜学院*****/
+.msfc_ccxy_bq{
+width:1200px;
+background:url(../images/msfc_ccxy.jpg) top center no-repeat;
+height:105px;
+margin:0 auto;
+}
+.msfc_ccxy_content{
+width:1200px;
+height:535px;
+background:#f3efef;
+margin:0 auto;
+position:relative;
+}
+.msfc_ccxy_content div.div_jstd_left{
+position:absolute;
+}
+
+.apply_nav{
+position:relative;
+width:610px;
+float:left;
+height:421px;
+margin-left:40px;
+overflow:hidden;
+}
+
+.apply_w {
+position:absolute;
+width:650px;
+float:left;
+}
+
+.apply_array {
+width:153px;
+float:left;
+height:421px;
+}
+
+.apply .img_l{
+cursor:pointer;
+position:absolute;
+left:10px;
+top:239px;
+}
+
+.apply .img_r{
+cursor:pointer;
+position:absolute;
+left:660px;
+top:239px
+}
+
+.msfc_ccxy_content p.p_jstd_pisition{
+position:absolute;
+left:500px;
+top:340px;
+}
+
+.msfc_ccxy_content div.div_jstd_right{
+position:absolute;
+left:720px;
+}
+.msfc_ccxy_content div.div_jstd_zy{
+position:absolute;
+left:720px;
+top:240px;
+}
+.msfc_ccxy_content div.div_jstd_right p{
+width:415px;
+font-size:14px;
+line-height:30px;
+}
+/*****大师在身边****/
+.msfc_dszsb_bq{
+width:1200px;
+margin:0 auto;
+height:84px;
+}
+.msfc_dszsb_content{
+width:1200px;
+height:232px;
+background:url(../images/msfc_dszsb_contentbj.jpg) top center no-repeat;
+margin:0 auto;
+position:relative;
+}
+
+.msfc_dszsb_content div.div_dszsb_left{
+position:absolute;
+left:110px;
+}
+.msfc_dszsb_content div.div_dszsb_left ul li{
+height:45px;
+width:365px;
+line-height:45px;
+border-bottom: #d39326 1px dotted;
+padding-left:15px;
+}
+.msfc_dszsb_content div.div_dszsb_left ul li a{
+font-size:12px;
+color:#6e6e6e;
+}
+.msfc_dszsb_content p.p_dgssp_position{
+position:absolute;
+left:553px;
+top:7px;
+}
+
+.msfc_dszsb_content div.div_dgs_jj{
+position:absolute;
+left:800px;
+top:25px;
+}
+.msfc_dszsb_content div.div_dgs_jj p{
+width:340px;
+line-height:30px;
+font-size:14px;
+}
+/*****大师在身边****/
+/*****西点学院*****/
+.msfc_xdxy_bq{
+background:url(../images/msfc_xdxy_bq.jpg) top center no-repeat;
+height:123px;
+}
+.msfc_xdxy_content{
+width:1200px;
+margin:0 auto;
+}
+.msfc_xdxy_content img{display:block;}
+/*****西点学院*****/
+/*****西餐学院*****/
+.msfc_xcxy_bq{
+background:url(../images/msfc_xcxy_bq.jpg) top center no-repeat;
+height:122px;
+}
+.msfc_xcxy_content{
+width:1200px;
+margin:0 auto;
+position:relative;
+height:150px;
+}
+.msfc_xcxy_content div.div_jstd_positon{
+position:absolute;
+left:70px;
+}
+.msfc_xcxy_content div.div_jstd_positon p{
+width:1073px;
+line-height:30px;
+font-size:14px;
+}
+.msfc_xcxy_picture{
+width:1200px;
+margin:0 auto;
+}
+/*****西餐学院*****/
+
+footer{display:none;} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
